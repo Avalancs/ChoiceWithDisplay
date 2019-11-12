@@ -1,7 +1,6 @@
 package org.avalancs.jenkins.plugins.choicewithdisplay.ChoiceWithDisplayParameterDefinition
 
-def l = namespace(lib.LayoutTagLib)
-def f=namespace(lib.FormTagLib)
+def f = namespace(lib.FormTagLib)
 
 f.entry(title:_('Name'), field: 'name') {
     f.textbox(name: 'parameter.name', value: "${instance.name}")
