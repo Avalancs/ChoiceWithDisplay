@@ -1,0 +1,18 @@
+<?jelly escape-by-default='true'?>
+<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define"
+	xmlns:l="/lib/layout" xmlns:t="/lib/hudson" xmlns:f="/lib/form"
+	xmlns:i="jelly:fmt" xmlns:p="/lib/hudson/project">
+    <f:entry title="${%Name}" field="name">
+		<f:textbox name="parameter.name" value="${instance.name}" />
+	</f:entry>
+    <f:entry title="${%Display_Value_Separator}" field="display_value_separator">
+		<f:textbox name="parameter.displayValueSeparator" value="${instance.displayValueSeparator}" default="|" clazz="required" />
+	</f:entry>
+	<f:entry title="${%Choices}" field="choices">
+		<f:textarea  name="parameter.choices" value="${instance.choicesText}"
+					 checkUrl="'${rootURL}/descriptorByName/org.avalancs.jenkins.plugins.choicewithdisplay.ChoiceWithDisplayParameterDefinition/checkChoices?value='+encodeURIComponent(this.value)" />
+	</f:entry>
+	<f:entry title="${%Description}" field="description">
+        <f:textarea name="parameter.description" value="${instance.description}" codemirror-mode="${app.markupFormatter.codeMirrorMode}" codemirror-config="${app.markupFormatter.codeMirrorConfig}" previewEndpoint="/markupFormatter/previewDescription" />
+    </f:entry>
+</j:jelly>
